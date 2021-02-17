@@ -1,18 +1,18 @@
-Future.java
- Future
-Product.java
- Product
 ProductAlreadyRegisteredException.java
  ProductAlreadyRegisteredException
-MontrealTradedProducts.java
- MontrealTradedProducts
 ProductPricingService.java
  ProductPricingService
-Stock.java
- Stock
 Stock2.java
  Stock2
+Future.java
+ Future
 MontrealTradedProductsImplementation.java
  MontrealTradedProductsImplementation
+Stock.java
+ Stock
+MontrealTradedProducts.java
+ MontrealTradedProducts
+Product.java
+ Product
 Future2.java
  Future2

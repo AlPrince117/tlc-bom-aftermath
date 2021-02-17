@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ProductTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2021-02-17T15:58:43" hostname="DESKTOP-ODK3S1M" time="1.139">
+  <properties/>
+  <testcase name="addingDuplicateProductsThrowProductAlreadyRegisteredException()" classname="ProductTest" time="0.085"/>
+  <testcase name="registeredProductCanBeTraded()" classname="ProductTest" time="0.004"/>
+  <testcase name="productsCanBeAdded()" classname="ProductTest" time="0.749"/>
+  <testcase name="totalValueOfDaysTradedProductsIsValid()" classname="ProductTest" time="0.111"/>
+  <testcase name="productsCanBeAddedAndDuplicateProductThrowsException()" classname="ProductTest" time="0.006"/>
+  <testcase name="unRegisteredProductCannotBeTraded()" classname="ProductTest" time="0.002"/>
+  <testcase name="productTradedQuantityIsValid()" classname="ProductTest" time="0.16"/>
+  <testcase name="productCanBeTraded()" classname="ProductTest" time="0.01"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
