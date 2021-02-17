@@ -1,13 +1,14 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-class ProductTest {
+class ProductTest2 {
     ProductPricingService productPricingService;
     MontrealTradedProductsImplementation montrealTradedProductsImplementation;
 
@@ -32,7 +33,7 @@ class ProductTest {
 
     @Test
     public void addingDuplicateProductsThrowProductAlreadyRegisteredException() throws ProductAlreadyRegisteredException {
-        Product product = new Stock("12", "AAPL", "EXCH1");
+        Product product = new Stock2("12", "AAPL", "EXCH1", productPricingService);
         montrealTradedProductsImplementation.addNewProduct(product);
 
         assertThrows(ProductAlreadyRegisteredException.class, () -> {
@@ -42,7 +43,7 @@ class ProductTest {
 
     @Test
     public void productsCanBeAddedAndDuplicateProductThrowsException() throws ProductAlreadyRegisteredException {
-        Product product = new Stock("12", "AAPL", "EXCH1");
+        Product product = new Stock2("12", "AAPL", "EXCH1", productPricingService);
 
         assertThrows(ProductAlreadyRegisteredException.class, () -> {
             montrealTradedProductsImplementation.addNewProduct(product);
@@ -60,7 +61,7 @@ class ProductTest {
     //RegisteredProductCanBeTraded
     @Test
     public void registeredProductCanBeTraded() throws ProductAlreadyRegisteredException {
-        Product product = new Stock("13", "AAPL", "EXCH1");
+        Product product = new Stock2("13", "AAPL", "EXCH1", productPricingService);
         montrealTradedProductsImplementation.addNewProduct(product);
         montrealTradedProductsImplementation.trade(product, 4);
         assertEquals(1, montrealTradedProductsImplementation.tradedProductsSize(), "Registered product was not traded.");
@@ -69,31 +70,27 @@ class ProductTest {
     //productCanBeTraded
     @Test
     public void productCanBeTraded() throws ProductAlreadyRegisteredException {
-        Product product = new Stock("12", "AAPL", "EXCH1");
-        MontrealTradedProductsImplementation productsImplementation = new MontrealTradedProductsImplementation();
-        productsImplementation.addNewProduct(product);
-        productsImplementation.trade(product, anyInt());
+        Product product = new Stock2("12", "AAPL", "EXCH1", productPricingService);
+        montrealTradedProductsImplementation.addNewProduct(product);
+        montrealTradedProductsImplementation.trade(product, 3);
     }
 
     @Test
     public void productTradedQuantityIsValid() throws ProductAlreadyRegisteredException {
-        Product product = new Stock("12", "AAPL", "EXCH1");
+        Product product = new Stock2("12", "AAPL", "EXCH1", productPricingService);
         montrealTradedProductsImplementation.addNewProduct(product);
         montrealTradedProductsImplementation.trade(product, 4);
         assertEquals(4, montrealTradedProductsImplementation.totalTradeQuantityForDay(), "Product traded quantity is not valid");
     }
 
-
     @Test
     public void totalValueOfDaysTradedProductsIsValid() throws ProductAlreadyRegisteredException {
-        Product product = mock(Stock.class);
-        when(product.getId()).thenReturn("34");
-        when(product.getPrice()).thenReturn(10.0);
-
+        Product product = new Stock2("12", "AAPL", "EXCH1", productPricingService);
         montrealTradedProductsImplementation.addNewProduct(product);
         montrealTradedProductsImplementation.trade(product, 4);
 
         // expected value = 4 * 10 = 40.0
         assertEquals(40.0, montrealTradedProductsImplementation.totalValueOfDaysTradedProducts(), "Total values for traded product is not valid");
     }
+
 }

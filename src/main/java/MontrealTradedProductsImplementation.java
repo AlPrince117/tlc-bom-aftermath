@@ -2,8 +2,8 @@ import java.util.*;
 
 public class MontrealTradedProductsImplementation implements MontrealTradedProducts {
 
-    private List<Product> registeredProductsList = new ArrayList<>();
-    private Map<Product, Integer> tradedProductsMap = new HashMap<>();
+    private final List<Product> registeredProductsList = new ArrayList<>();
+    private final Map<Product, Integer> tradedProductsMap = new HashMap<>();
 
     public int registeredProductSize() {
         return this.registeredProductsList.size();
@@ -49,6 +49,7 @@ public class MontrealTradedProductsImplementation implements MontrealTradedProdu
     public void trade(Product product, int quantity) {
         // if not registered, return
         if (!this.registeredProductsList.contains(product)) {
+            System.out.println(product.getId() + " is not registered");
             return;
         }
 

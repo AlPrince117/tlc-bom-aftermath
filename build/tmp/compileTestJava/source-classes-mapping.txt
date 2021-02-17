@@ -1,2 +1,4 @@
+ProductTest2.java
+ ProductTest2
 ProductTest.java
  ProductTest

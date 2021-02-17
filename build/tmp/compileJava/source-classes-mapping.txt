@@ -4,11 +4,15 @@ Product.java
  Product
 ProductAlreadyRegisteredException.java
  ProductAlreadyRegisteredException
-Stock.java
- Stock
-ProductPricingService.java
- ProductPricingService
 MontrealTradedProducts.java
  MontrealTradedProducts
+ProductPricingService.java
+ ProductPricingService
+Stock.java
+ Stock
+Stock2.java
+ Stock2
 MontrealTradedProductsImplementation.java
  MontrealTradedProductsImplementation
+Future2.java
+ Future2
